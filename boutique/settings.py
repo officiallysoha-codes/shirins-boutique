@@ -1,14 +1,18 @@
 from pathlib import Path
+import os
 
-# Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Security
-SECRET_KEY = 'abc'
-DEBUG = True
-ALLOWED_HOSTS = []
 
-# Installed apps
+# SECURITY
+SECRET_KEY = 'your-secret-key-here'  # you can keep your current one
+
+DEBUG = True  # change to False later when fully live
+
+ALLOWED_HOSTS = ['*']  # required for deployment
+
+
+# APPLICATIONS
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -20,7 +24,8 @@ INSTALLED_APPS = [
     'store',
 ]
 
-# Middleware (IMPORTANT: no weird characters here)
+
+# MIDDLEWARE
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -31,14 +36,15 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# URLs
+
 ROOT_URLCONF = 'boutique.urls'
 
-# Templates
+
+# TEMPLATES
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [],  # you can add global templates later if needed
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -51,10 +57,11 @@ TEMPLATES = [
     },
 ]
 
-# WSGI
+
 WSGI_APPLICATION = 'boutique.wsgi.application'
 
-# Database (default SQLite)
+
+# DATABASE (SQLite for now)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -62,20 +69,40 @@ DATABASES = {
     }
 }
 
-# Password validation
-AUTH_PASSWORD_VALIDATORS = []
 
-# Language & Time
+# PASSWORD VALIDATION
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+
+# INTERNATIONALIZATION
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 USE_TZ = True
 
-# Static files
+
+# STATIC FILES (VERY IMPORTANT FOR DEPLOYMENT)
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'store/static'
+    BASE_DIR / "store/static",
 ]
-# Default primary key
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+# DEFAULT PRIMARY KEY
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
