@@ -1,5 +1,7 @@
+/* RESET */
 body {
     margin: 0;
+    font-family: 'Playfair Display', serif;
 }
 
 /* HERO SECTION */
@@ -7,12 +9,8 @@ body {
     position: relative;
     height: 100vh;
 
-    background-image: 
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-        url("../images/hero.jpg");
-
     background-size: cover;
-    background-position: center top;
+    background-position: center;
     background-repeat: no-repeat;
 
     display: flex;
@@ -25,16 +23,16 @@ body {
 .content {
     color: #f5e6d3;
     z-index: 2;
+    position: relative;
 }
 
 .content h1 {
-    font-family: 'Playfair Display', serif;
     font-size: 68px;
     margin: 0;
+    letter-spacing: 2px;
 }
 
 .content p {
-    font-family: 'Lora', serif;
     font-size: 20px;
     margin-top: 12px;
     font-style: italic;
