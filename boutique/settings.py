@@ -5,9 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY
-SECRET_KEY = 'your-secret-key-here'  # you can keep your current one
+SECRET_KEY = 'shirin-boutique-secret-123456' # you can keep your current one
 
-DEBUG = True  # change to False later when fully live
+DEBUG = False # change to False later when fully live
 
 ALLOWED_HOSTS = ['*']  # required for deployment
 
@@ -28,6 +28,9 @@ INSTALLED_APPS = [
 # MIDDLEWARE
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ADD THIS
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -35,7 +38,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 
 ROOT_URLCONF = 'boutique.urls'
 
@@ -102,6 +104,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # DEFAULT PRIMARY KEY
