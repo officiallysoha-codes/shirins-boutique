@@ -45,10 +45,16 @@ body {
 /* LOGO */
 .logo {
     position: absolute;
-    top: 20px;
-    left: 40px;
-    height: 85px;
+    top: 18px;
+    left: 30px;
+    height: 110px;   /* increased from 85 → 110 */
+    width: auto;
     z-index: 3;
+}
+    .logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
 }
 
 /* OPTIONAL: NAV LINKS (if you add later) */
