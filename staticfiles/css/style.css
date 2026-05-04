@@ -47,24 +47,32 @@ body {
     z-index: 3;
 }
 /* NAVBAR */
+/* NAVBAR */
 .navbar {
     position: absolute;
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;  /* push everything right */
     align-items: center;
     padding: 20px 40px;
     z-index: 10;
 }
 
-/* RIGHT SIDE */
+/* LOGO (now also on right side) */
+.logo {
+    height: 110px;
+    margin-right: 20px;
+}
+
+/* RIGHT SIDE ITEMS */
 .nav-right {
     display: flex;
     align-items: center;
     gap: 25px;
 }
 
+/* LINKS */
 .nav-right a {
     text-decoration: none;
     color: #f5e6d3;
