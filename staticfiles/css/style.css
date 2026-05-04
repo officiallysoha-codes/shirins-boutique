@@ -1,7 +1,5 @@
-/* RESET */
 body {
     margin: 0;
-    font-family: 'Playfair Display', serif;
 }
 
 /* HERO SECTION */
@@ -9,12 +7,8 @@ body {
     position: relative;
     height: 100vh;
 
-    background-image:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-        url("../images/hero.jpg");
-
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
 
     display: flex;
@@ -23,20 +17,21 @@ body {
     text-align: center;
 }
 
-/* CONTENT */
+/* TEXT */
 .content {
     color: #f5e6d3;
     z-index: 2;
-    position: relative;
 }
 
 .content h1 {
-    font-size: 68px;
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    letter-spacing: 1px;
     margin: 0;
-    letter-spacing: 2px;
 }
 
 .content p {
+    font-family: 'Lora', serif;
     font-size: 20px;
     margin-top: 12px;
     font-style: italic;
@@ -47,26 +42,7 @@ body {
     position: absolute;
     top: 18px;
     left: 30px;
-    height: 110px;   /* increased from 85 → 110 */
+    height: 110px;
     width: auto;
     z-index: 3;
-}
-    .logo img {
-    height: 100%;
-    width: auto;
-    object-fit: contain;
-}
-
-/* OPTIONAL: NAV LINKS (if you add later) */
-.nav-links {
-    position: absolute;
-    top: 30px;
-    right: 40px;
-}
-
-.nav-links a {
-    color: #f5e6d3;
-    margin-left: 20px;
-    text-decoration: none;
-    font-size: 16px;
 }

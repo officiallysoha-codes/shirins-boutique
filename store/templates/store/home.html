@@ -5,22 +5,25 @@
     <meta charset="UTF-8">
     <title>Shirin's Boutique</title>
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lora&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-
 <body>
 
-<!-- LOGO -->
-<img src="{% static 'images/logo.png' %}" class="logo">
-
-<!-- HERO SECTION -->
 <div class="hero"
      style="background-image:
-     linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+     linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
      url('{% static "images/hero.jpg" %}');">
 
+    <!-- LOGO -->
+    <img src="{% static 'images/logo.png' %}" class="logo">
+
+    <!-- TEXT -->
     <div class="content">
-        <h1>Shirin's Boutique</h1>
+        <h1>Shirin’s Boutique</h1>
         <p>Where elegance meets tradition</p>
     </div>
 
