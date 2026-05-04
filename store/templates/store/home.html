@@ -1,29 +1,42 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Shirin's Boutique</title>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lora&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
 
-<div class="hero"
-     style="background-image:
-     linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-     url('{% static "images/hero.jpg" %}');">
-
-    <!-- LOGO -->
+<!-- NAVBAR -->
+<div class="navbar">
     <img src="{% static 'images/logo.png' %}" class="logo">
 
-    <!-- TEXT -->
+    <div class="nav-right">
+        <a href="#">Home</a>
+        <a href="#">Cart 🛒</a>
+        <a href="#">Wishlist ❤️</a>
+
+        <!-- MENU -->
+        <div class="menu">
+            ☰
+            <div class="dropdown">
+                <a href="#">Collections</a>
+                <a href="#">Best Sellers</a>
+                <a href="#">Track Order</a>
+                <a href="#">Order History</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero" style="background-image:
+linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+url('{% static "images/hero.jpg" %}');">
+
     <div class="content">
-        <h1>Shirin’s Boutique</h1>
+        <h1>Shirin's Boutique</h1>
         <p>Where elegance meets tradition</p>
     </div>
 

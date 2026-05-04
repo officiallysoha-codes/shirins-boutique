@@ -46,3 +46,58 @@ body {
     width: auto;
     z-index: 3;
 }
+/* NAVBAR */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    z-index: 10;
+}
+
+/* RIGHT SIDE */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-right a {
+    text-decoration: none;
+    color: #f5e6d3;
+    font-size: 16px;
+    font-family: 'Lora', serif;
+}
+
+/* MENU */
+.menu {
+    position: relative;
+    cursor: pointer;
+    color: #f5e6d3;
+    font-size: 22px;
+}
+
+/* DROPDOWN */
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    background-color: #7a1f1f;
+    padding: 10px;
+    border-radius: 6px;
+    min-width: 160px;
+}
+
+.dropdown a {
+    display: block;
+    padding: 8px;
+    color: #fff;
+}
+
+.menu:hover .dropdown {
+    display: block;
+}
