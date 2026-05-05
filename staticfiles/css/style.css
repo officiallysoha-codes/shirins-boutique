@@ -82,47 +82,60 @@ body {
     font-size: 22px;
     cursor: pointer;
 }
-@media (max-width: 768px) {
-
-    /* NAVBAR */
-    .navbar {
-        padding: 10px 15px;
-    }
+@@media (max-width: 768px) {
 
     .logo {
-        height: 55px;
-    }
-
-    .nav-right {
-        gap: 10px;
-    }
-
-    .nav-right a {
-        font-size: 12px;
-    }
-
-    /* HERO TEXT */
-    .content h1 {
-        font-size: 28px;
-        line-height: 1.2;
-    }
-
-    .content p {
-        font-size: 13px;
-    }
-
-    /* HERO IMAGE */
-    .hero {
-        height: 100vh;
-        background-position: center;
-    }
-
-    /* OPTIONAL: HIDE TEXT LINKS, KEEP ICONS CLEAN */
-    .nav-right a {
-        display: none;
+        height: 60px;
     }
 
     .menu {
-        display: block;
+        font-size: 24px;
     }
+
+    .navbar {
+        padding: 10px 15px;
+    }
+}
+
+/* LOGO */
+.logo {
+    height: 90px;
+}
+
+/* MENU */
+.menu {
+    position: relative;
+    font-size: 26px;
+    cursor: pointer;
+    color: #f5e6d3;
+}
+
+/* DROPDOWN */
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 35px;
+    background-color: #7a1f1f;
+    padding: 10px;
+    border-radius: 6px;
+    min-width: 180px;
+}
+
+/* DROPDOWN LINKS */
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown a:hover {
+    background-color: #5a1515;
+}
+
+/* SHOW DROPDOWN */
+.menu:hover .dropdown {
+    display: block;
 }
