@@ -47,65 +47,82 @@ body {
     z-index: 3;
 }
 /* NAVBAR */
-/* NAVBAR */
 .navbar {
     position: absolute;
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: flex-end;  /* push everything right */
+    justify-content: space-between; /* balanced */
     align-items: center;
-    padding: 20px 40px;
+    padding: 15px 20px;
     z-index: 10;
 }
 
-/* LOGO (now also on right side) */
+/* LOGO */
 .logo {
-    height: 110px;
-    margin-right: 20px;
+    height: 90px;
 }
 
-/* RIGHT SIDE ITEMS */
+/* RIGHT SIDE */
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
 }
 
 /* LINKS */
 .nav-right a {
     text-decoration: none;
     color: #f5e6d3;
-    font-size: 16px;
-    font-family: 'Lora', serif;
+    font-size: 15px;
 }
 
 /* MENU */
 .menu {
-    position: relative;
-    cursor: pointer;
-    color: #f5e6d3;
     font-size: 22px;
+    cursor: pointer;
 }
+@media (max-width: 768px) {
 
-/* DROPDOWN */
-.dropdown {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 30px;
-    background-color: #7a1f1f;
-    padding: 10px;
-    border-radius: 6px;
-    min-width: 160px;
-}
+    /* NAVBAR */
+    .navbar {
+        padding: 10px 15px;
+    }
 
-.dropdown a {
-    display: block;
-    padding: 8px;
-    color: #fff;
-}
+    .logo {
+        height: 55px;
+    }
 
-.menu:hover .dropdown {
-    display: block;
+    .nav-right {
+        gap: 10px;
+    }
+
+    .nav-right a {
+        font-size: 12px;
+    }
+
+    /* HERO TEXT */
+    .content h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .content p {
+        font-size: 13px;
+    }
+
+    /* HERO IMAGE */
+    .hero {
+        height: 100vh;
+        background-position: center;
+    }
+
+    /* OPTIONAL: HIDE TEXT LINKS, KEEP ICONS CLEAN */
+    .nav-right a {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
 }
