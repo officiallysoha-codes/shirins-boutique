@@ -86,11 +86,22 @@ body {
 /* SEARCH ICON */
 .search-icon {
 
-    font-size: 18px;
+    font-size: 28px;
 
     color: white;
 
     cursor: pointer;
+
+    font-weight: 300;
+
+    transition: 0.3s;
+}
+
+.search-icon:hover {
+
+    transform: scale(1.08);
+
+    color: #fff4ea;
 }
 
 /* MENU */
