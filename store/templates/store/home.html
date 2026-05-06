@@ -1,43 +1,77 @@
 {% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Shirin's Boutique</title>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
+    <!-- HERO SECTION -->
+    <div class="hero">
 
-    <!-- LOGO LEFT -->
-    <img src="{% static 'images/logo.png' %}" class="logo">
+        <!-- NAVBAR -->
+        <div class="navbar">
 
-    <!-- MENU RIGHT -->
-    <div class="menu">
-        ☰
-        <div class="dropdown">
-            <a href="#">Collections</a>
-            <a href="#">Best Sellers</a>
-            <a href="#">Track Order</a>
-            <a href="#">Order History</a>
+            <!-- LEFT LOGO -->
+            <div class="left-nav">
+                <img src="{% static 'images/logo.png' %}" class="logo">
+            </div>
+
+            <!-- CENTER SEARCH -->
+            <div class="search-box">
+                <input type="text" placeholder="Search collections...">
+            </div>
+
+            <!-- RIGHT NAV -->
+            <div class="right-nav">
+
+                <a href="#" class="nav-icon">Wishlist ❤️</a>
+
+                <a href="#" class="nav-icon">Cart 🛒</a>
+
+                <!-- MENU -->
+                <div class="menu">
+
+                    ☰
+
+                    <div class="dropdown">
+                        <a href="#">Collections</a>
+                        <a href="#">Best Sellers</a>
+                        <a href="#">Track Order</a>
+                        <a href="#">Order History</a>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+
+        <!-- HERO CONTENT -->
+        <div class="content">
+
+            <h1>Shirin's Boutique</h1>
+
+            <p>Where elegance meets tradition</p>
+
+        </div>
+
     </div>
-
-</div>
-<!-- HERO -->
-<div class="hero" style="background-image:
-linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-url('{% static "images/hero.jpg" %}');">
-
-    <div class="content">
-        <h1>Shirin's Boutique</h1>
-        <p>Where elegance meets tradition</p>
-    </div>
-
-</div>
 
 </body>
+
 </html>
