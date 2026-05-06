@@ -265,3 +265,51 @@ body {
         gap: 12px;
     }
 }
+/* SUBMENU */
+
+.submenu {
+
+    position: relative;
+}
+
+.submenu-content {
+
+    display: none;
+
+    position: absolute;
+
+    top: 0;
+
+    left: -230px;
+
+    background-color: rgba(122, 31, 31, 0.96);
+
+    min-width: 220px;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.submenu-content a {
+
+    display: block;
+
+    padding: 15px 20px;
+
+    color: #f5e6d3;
+
+    text-decoration: none;
+
+    font-size: 15px;
+}
+
+.submenu-content a:hover {
+
+    background-color: #5a1515;
+}
+
+.submenu:hover .submenu-content {
+
+    display: block;
+}
