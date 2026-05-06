@@ -274,13 +274,15 @@ body {
 
 .submenu-content {
 
+    .submenu-content {
+
     display: none;
 
     position: absolute;
 
     top: 0;
 
-    left: -230px;
+    left: -220px;
 
     background-color: rgba(122, 31, 31, 0.96);
 
@@ -289,6 +291,8 @@ body {
     border-radius: 12px;
 
     overflow: hidden;
+
+    z-index: 999;
 }
 
 .submenu-content a {
