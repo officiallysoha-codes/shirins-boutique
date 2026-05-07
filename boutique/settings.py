@@ -5,14 +5,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY
-SECRET_KEY = 'shirin-boutique-secret-123456' # you can keep your current one
 
-DEBUG = True # change to False later when fully live
+SECRET_KEY = 'django-secret-key'
 
-ALLOWED_HOSTS = ['*']  # required for deployment
+DEBUG = True
+
+ALLOWED_HOSTS = ['*']
 
 
 # APPLICATIONS
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -26,10 +28,11 @@ INSTALLED_APPS = [
 
 
 # MIDDLEWARE
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ADD THIS
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -39,20 +42,26 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'boutique.urls'
 
 
 # TEMPLATES
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # you can add global templates later if needed
+
+        'DIRS': [],
+
         'APP_DIRS': True,
+
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+
                 'django.contrib.auth.context_processors.auth',
+
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -63,56 +72,51 @@ TEMPLATES = [
 WSGI_APPLICATION = 'boutique.wsgi.application'
 
 
-# DATABASE (SQLite for now)
+# DATABASE
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
 
 # PASSWORD VALIDATION
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+
+AUTH_PASSWORD_VALIDATORS = []
 
 
-# INTERNATIONALIZATION
+# LANGUAGE
+
 LANGUAGE_CODE = 'en-us'
+
 TIME_ZONE = 'Asia/Kolkata'
+
 USE_I18N = True
+
 USE_TZ = True
 
 
-# STATIC FILES (VERY IMPORTANT FOR DEPLOYMENT)
+# STATIC FILES
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "store/static",
+    BASE_DIR / 'store/static',
 ]
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-
-# DEFAULT PRIMARY KEY
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# MEDIA FILES
 
 # MEDIA FILES
 
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# DEFAULT PRIMARY KEY
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

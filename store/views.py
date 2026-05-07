@@ -24,6 +24,7 @@ def category_page(request, name):
 
     products = Product.objects.filter(category=category)
 
+
     return render(request, 'store/category.html', {
         'category': category,
         'products': products

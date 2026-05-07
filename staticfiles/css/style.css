@@ -1,48 +1,406 @@
-/* RESET */
-body {
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500;1,600&family=Great+Vibes&family=Poppins:wght@400;500;600&display=swap');
+
+/* ========================= 
+   RESET
+========================= */
+
+*{
     margin: 0;
-    font-family: 'Playfair Display', serif;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* HERO SECTION */
-.hero {
+body{
+    background: #f8f5f0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding: 30px 60px;
+}
+
+.right-nav{
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* NAV LINKS */
+
+.nav-icon,
+.search-icon,
+.menu{
+    color: #fffff0;
+    text-decoration: none;
+
+    font-size: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-icon:hover,
+.search-icon:hover,
+.menu:hover{
+    color: #fffaf0;
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.menu{
     position: relative;
+    font-size: 38px;
+}
+
+.dropdown{
+    display: none;
+
+    position: absolute;
+    right: 0;
+    top: 60px;
+
+    background: rgba(20,20,20,0.95);
+
+    min-width: 260px;
+
+    border-radius: 14px;
+
+    padding: 18px 0;
+
+    backdrop-filter: blur(10px);
+}
+
+.dropdown a{
+    display: block;
+
+    color: #fffff0;
+
+    text-decoration: none;
+
+    padding: 14px 24px;
+
+    font-size: 18px;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.dropdown a:hover{
+    background: rgba(255,255,255,0.08);
+}
+
+.menu:hover .dropdown{
+    display: block;
+}
+
+
+/* SUBMENU */
+
+.submenu{
+    position: relative;
+}
+
+.submenu-content{
+    display: none;
+
+    position: absolute;
+
+    left: -260px;
+    top: 0;
+
+    background: rgba(20,20,20,0.96);
+
+    width: 250px;
+
+    border-radius: 14px;
+
+    padding: 10px 0;
+}
+
+.submenu:hover .submenu-content{
+    display: block;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
     height: 100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.35),
+    rgba(0,0,0,0.35)),
+
+    url("/static/images/hero.jpg");
 
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
     text-align: center;
 }
 
-/* TEXT */
-.content {
-    color: #f5e6d3;
-    z-index: 2;
-    position: relative;
+
+/* HERO TEXT */
+
+.overlay h1{
+    font-family: 'Great Vibes', 'Allura', cursive;
+
+    font-size: 105px;
+
+    color: #fffff0;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-shadow: 2px 2px 18px rgba(0,0,0,0.45);
 }
 
-.content h1 {
-    font-size: 68px;
-    margin: 0;
-    letter-spacing: 2px;
-}
-
-.content p {
-    font-size: 20px;
+.overlay p{
     margin-top: 12px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 34px;
+
     font-style: italic;
+    font-weight: 600;
+
+    color: #fffff0;
+
+    letter-spacing: 1px;
+
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
 }
 
-/* LOGO */
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 40px;
-    height: 85px;
-    z-index: 3;
+
+/* =========================
+   PRODUCTS SECTION
+========================= */
+
+.products-section{
+    padding: 90px 8%;
+
+    background: #f8f5f0;
+}
+
+.products-section h2{
+    text-align: center;
+
+    font-size: 52px;
+
+    margin-bottom: 60px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    color: #4a2d24;
+}
+
+
+/* PRODUCTS GRID */
+
+.products-container{
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 28px;
+
+    align-items: start;
+}
+
+
+/* PRODUCT CARD */
+
+.product-card{
+    background: white;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+
+    transition: 0.4s;
+}
+
+.product-card:hover{
+    transform: translateY(-6px);
+
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+}
+
+
+/* PRODUCT IMAGE */
+
+.product-image{
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* PRODUCT DETAILS */
+
+.product-card h3{
+    padding-top: 16px;
+
+    text-align: center;
+
+    font-size: 23px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    color: #3a241d;
+}
+
+.product-card p{
+    text-align: center;
+
+    margin-top: 8px;
+
+    font-size: 16px;
+
+    color: #7b5a4e;
+}
+
+
+/* BUTTON */
+
+.product-card button{
+    display: block;
+
+    margin: 18px auto 24px;
+
+    padding: 12px 28px;
+
+    border: none;
+
+    border-radius: 40px;
+
+    background: #3f241c;
+
+    color: ivory;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.product-card button:hover{
+    background: #5e382d;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   CATEGORY PAGE
+========================= */
+
+.products-page{
+    padding: 120px 8%;
+
+    background: #f8f5f0;
+
+    min-height: 100vh;
+}
+
+.products-page h1{
+    text-align: center;
+
+    margin-bottom: 60px;
+
+    font-size: 70px;
+
+    font-family: 'Great Vibes', 'Allura', cursive;
+
+    color: #4a2d24;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .overlay h1{
+        font-size: 70px;
+    }
+
+    .overlay p{
+        font-size: 24px;
+    }
+
+    .navbar{
+        padding: 20px;
+    }
+
+    .right-nav{
+        gap: 16px;
+    }
+
+    .products-container{
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 18px;
+    }
+
+    .product-image{
+        height: 220px;
+    }
+
+    .product-card h3{
+        font-size: 20px;
+    }
+
+    .product-card p{
+        font-size: 15px;
+    }
+
+    .product-card button{
+        padding: 10px 22px;
+        font-size: 14px;
+    }
+
+    .submenu-content{
+        left: -220px;
+        width: 210px;
+    }
 }

@@ -4,70 +4,82 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Shirin's Boutique</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
 
-    <div class="navbar">
+<!-- NAVBAR -->
 
-        <div class="logo">
-            <h2>Shirin's Boutique</h2>
-        </div>
+<div class="navbar">
 
-        <div class="right-nav">
+    <div class="right-nav">
 
-           <a href="/wishlist/" class="nav-icon">Wishlist</a>
+        <!-- SEARCH -->
 
-            <a href="/cart/" class="nav-icon">Cart</a>
+        <a href="/search/" class="search-icon">⌕</a>
 
-            <div class="menu">
 
-                ☰
+        <!-- WISHLIST -->
 
-                <div class="dropdown">
+        <a href="/wishlist/" class="nav-icon">Wishlist</a>
 
-                    <div class="submenu">
 
-                        <a href="#">Collections ▸</a>
+        <!-- CART -->
 
-                        <div class="submenu-content">
+        <a href="/cart/" class="nav-icon">Cart</a>
 
-                            <a href="/category/Sarees/">Sarees</a>
 
-                            <a href="/category/Lehengas/">Lehengas</a>
+        <!-- MENU -->
 
-                            <a href="/category/Shararas/">Shararas</a>
+        <div class="menu">
 
-                            <a href="/category/Salwar Suits/">Salwar Suits</a>
+            ☰
 
-                            <a href="/category/Indo Western/">Indo Western</a>
+            <div class="dropdown">
 
-                            <a href="/category/Gown Sets/">Gown Sets</a>
+                <div class="submenu">
 
-                            <a href="/category/Blazer Attires/">Blazer Attires</a>
+                    <a href="#">Collections ▸</a>
 
-                            <a href="/category/Bridal Collection/">Bridal Collection</a>
+                    <div class="submenu-content">
 
-                        </div>
+                        <a href="/category/Sarees/">Sarees</a>
+
+                        <a href="/category/Lehengas/">Lehengas</a>
+
+                        <a href="/category/Shararas/">Shararas</a>
+
+                        <a href="/category/Salwar Suits/">Salwar Suits</a>
+
+                        <a href="/category/Indo Western/">Indo Western</a>
+
+                        <a href="/category/Gown Sets/">Gown Sets</a>
+
+                        <a href="/category/Blazer Attires/">Blazer Attires</a>
+
+                        <a href="/category/Bridal Collection/">Bridal Collection</a>
 
                     </div>
 
-                    <a href="#">Best Sellers</a>
-
-                    <a href="#">Track Order</a>
-
-                    <a href="#">Order History</a>
-
                 </div>
+
+                <a href="#">Best Sellers</a>
+
+                <a href="#">Track Order</a>
+
+                <a href="#">Order History</a>
 
             </div>
 
@@ -75,52 +87,60 @@
 
     </div>
 
-    <!-- HERO SECTION -->
+</div>
 
-    <section class="hero">
 
-        <div class="overlay">
+<!-- HERO SECTION -->
 
-            <h1>Shirin's Boutique</h1>
+<section class="hero">
 
-            <p>Where elegance meets tradition</p>
+    <div class="overlay">
 
-        </div>
+        <h1>Shirin's Boutique</h1>
 
-    </section>
+        <p>Where elegance meets tradition</p>
 
-    <!-- PRODUCTS -->
+    </div>
 
-    <section class="products-section">
+</section>
 
-        <h2>Saree Collection</h2>
 
-        <div class="products-container">
+<!-- PRODUCTS SECTION -->
 
-            {% for product in products %}
+<section class="products-section">
 
-            <div class="product-card">
+    <h2>Saree Collection</h2>
 
-                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    <div class="products-container">
 
-                <h3>{{ product.name }}</h3>
+        {% for product in products %}
 
-                <p>₹ {{ product.price }}</p>
+        <div class="product-card">
 
-               <a href="/add-to-cart/{{ product.id }}/">
-   
+            {% if product.image %}
+
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+
+            {% endif %}
+
+            <h3>{{ product.name }}</h3>
+
+            <p>₹ {{ product.price }}</p>
+
+            <a href="/add-to-cart/{{ product.id }}/">
+
                 <button>Add to Cart</button>
 
             </a>
 
-            </div>
-
-            {% endfor %}
-
         </div>
 
-    </section>
+        {% endfor %}
+
+    </div>
+
+</section>
+
 
 </body>
-
 </html>
