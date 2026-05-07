@@ -4,80 +4,82 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Shirin's Boutique</title>
 
-    <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
 
-    <!-- HERO SECTION -->
-    <div class="hero">
+    <!-- NAVBAR -->
 
-        <!-- NAVBAR -->
-        <div class="navbar">
+    <div class="navbar">
 
-    <div class="right-nav">
+        <div class="logo">
+            <h2>Shirin's Boutique</h2>
+        </div>
 
-        <div class="search-icon">⌕</div>
+        <div class="right-nav">
 
-        <a href="#" class="nav-icon">Wishlist</a>
+           <a href="/wishlist/" class="nav-icon">Wishlist</a>
 
-        <a href="#" class="nav-icon">Cart</a>
+            <a href="/cart/" class="nav-icon">Cart</a>
 
-        <div class="menu">
+            <div class="menu">
 
-            ☰
+                ☰
 
-           <div class="dropdown">
+                <div class="dropdown">
 
-                  <div class="submenu">
+                    <div class="submenu">
 
-                    <a href="#">Collections ▸</a>
+                        <a href="#">Collections ▸</a>
 
-             <div class="submenu-content">
+                        <div class="submenu-content">
 
-                    <a href="#">Sarees</a>
+                            <a href="/category/Sarees/">Sarees</a>
 
-                    <a href="#">Lehengas</a>
+                            <a href="/category/Lehengas/">Lehengas</a>
 
-                     <a href="#">Shararas</a>
+                            <a href="/category/Shararas/">Shararas</a>
 
-                     <a href="#">Salwar Suits</a>
+                            <a href="/category/Salwar Suits/">Salwar Suits</a>
 
-                     <a href="#">Indo Western</a>
+                            <a href="/category/Indo Western/">Indo Western</a>
 
-                     <a href="#">Gown Sets</a>
+                            <a href="/category/Gown Sets/">Gown Sets</a>
 
-                     <a href="#">Blazer Attires</a>
+                            <a href="/category/Blazer Attires/">Blazer Attires</a>
+
+                            <a href="/category/Bridal Collection/">Bridal Collection</a>
+
+                        </div>
+
+                    </div>
+
+                    <a href="#">Best Sellers</a>
+
+                    <a href="#">Track Order</a>
+
+                    <a href="#">Order History</a>
+
+                </div>
 
             </div>
 
         </div>
 
-             <a href="#">Best Sellers</a>
-
-            <a href="#">Track Order</a>
-
-            <a href="#">Order History</a>
-
-        </div>
-
-         </div>
-
     </div>
 
-</div>
-        <!-- HERO CONTENT -->
-        <div class="content">
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="overlay">
 
             <h1>Shirin's Boutique</h1>
 
@@ -85,7 +87,39 @@
 
         </div>
 
-    </div>
+    </section>
+
+    <!-- PRODUCTS -->
+
+    <section class="products-section">
+
+        <h2>Saree Collection</h2>
+
+        <div class="products-container">
+
+            {% for product in products %}
+
+            <div class="product-card">
+
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+
+                <h3>{{ product.name }}</h3>
+
+                <p>₹ {{ product.price }}</p>
+
+               <a href="/add-to-cart/{{ product.id }}/">
+   
+                <button>Add to Cart</button>
+
+            </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
 
 </body>
 

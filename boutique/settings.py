@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY
 SECRET_KEY = 'shirin-boutique-secret-123456' # you can keep your current one
 
-DEBUG = False # change to False later when fully live
+DEBUG = True # change to False later when fully live
 
 ALLOWED_HOSTS = ['*']  # required for deployment
 
@@ -109,3 +109,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # DEFAULT PRIMARY KEY
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# MEDIA FILES
+
+# MEDIA FILES
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
