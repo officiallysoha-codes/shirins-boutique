@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | Shirin's Boutique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<section class="info-page">
+    <a class="back-link" href="/">Back to Home</a>
+    <h1>{{ title }}</h1>
+    {% for paragraph in body %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
+    <div class="info-contact">
+        <a href="tel:+919836380078">9836380078</a>
+        <a href="tel:+918961130707">8961130707</a>
+        <a href="mailto:sabnam.shirin74@gmail.com">sabnam.shirin74@gmail.com</a>
+    </div>
+</section>
+
+</body>
+</html>
