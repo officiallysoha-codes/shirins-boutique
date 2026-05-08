@@ -506,23 +506,26 @@ body {
     }
 
     .hero {
-        height: 78vh;
-        min-height: 520px;
-        background-size: contain;
+        height: 72svh;
+        min-height: 540px;
+        max-height: 680px;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center top;
         background-color: #2b1a12;
     }
 
     .overlay {
-        padding: 0 18px;
+        width: 100%;
+        padding: 88px 18px 0;
     }
     .overlay h1 {
-        font-size: 58px;
+        font-size: 54px;
+        line-height: 0.95;
     }
 
     .overlay p {
-        font-size: 22px;
+        font-size: 21px;
     }
 
     .info-page {
