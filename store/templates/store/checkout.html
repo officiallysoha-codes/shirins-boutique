@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Shirin's Boutique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20260510-payments">
+</head>
+<body>
+<section class="shop-page">
+    <a class="back-link" href="/cart/">Back to Cart</a>
+    <h1>Checkout</h1>
+
+    <div class="checkout-layout">
+        <div class="payment-panel">
+            <h2>Payment Options</h2>
+            <p class="result-note">Choose how you would like to complete this order.</p>
+
+            <div class="payment-option">
+                <h3>UPI / GPay / PhonePe / Paytm</h3>
+                <p>Pay securely using any UPI app. UPI ID: <strong>{{ business_upi_id }}</strong></p>
+                <a class="button-link" href="{{ upi_link }}">Pay Rs. {{ total }} with UPI</a>
+                <a class="button-link secondary" href="https://wa.me/{{ whatsapp_phone }}?text={{ online_text|urlencode }}">Share Payment Screenshot on WhatsApp</a>
+            </div>
+
+            <div class="payment-option">
+                <h3>Cash on Delivery</h3>
+                <p>Confirm the order now and pay when the order is delivered.</p>
+                <a class="button-link" href="https://wa.me/{{ whatsapp_phone }}?text={{ cod_text|urlencode }}">Confirm COD Order</a>
+            </div>
+
+            <div class="payment-option">
+                <h3>Cards / Netbanking / Wallets</h3>
+                {% if razorpay_enabled %}
+                <p>Razorpay is configured for this store. Complete the payment through the secure gateway.</p>
+                <a class="button-link" href="https://wa.me/{{ whatsapp_phone }}?text={{ online_text|urlencode }}">Request Secure Payment Link</a>
+                {% else %}
+                <p>These options require the boutique's Razorpay account to be activated in Render environment variables. Until then, use UPI or Cash on Delivery.</p>
+                <a class="button-link secondary" href="https://wa.me/{{ whatsapp_phone }}?text={{ online_text|urlencode }}">Ask for Online Payment Help</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            {% for item in items %}
+            <div class="summary-row">
+                <span>{{ item.product.name }} x {{ item.quantity }}</span>
+                <strong>Rs. {{ item.subtotal }}</strong>
+            </div>
+            {% endfor %}
+            <div class="summary-total">
+                <span>Total</span>
+                <strong>Rs. {{ total }}</strong>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

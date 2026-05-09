@@ -1,3 +1,6 @@
+import os
+from urllib.parse import quote
+
 from django.db.models import Q
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
@@ -5,6 +8,8 @@ from .models import Product, Category
 
 
 CONTACT_PHONE = '919836380078'
+BUSINESS_UPI_ID = 'sabnam.shirin74-1@okaxis'
+BUSINESS_NAME = "Shirin's Boutique"
 
 
 def _cart(request):
@@ -85,6 +90,42 @@ def cart(request):
         'total': total,
         'whatsapp_phone': CONTACT_PHONE,
         'whatsapp_text': whatsapp_text,
+    })
+
+
+def checkout(request):
+
+    items, total = _cart_items(_cart(request))
+
+    if not items:
+        return redirect('cart')
+
+    product_summary = ', '.join(
+        f"{item['product'].name} x {item['quantity']}" for item in items
+    )
+    order_text = (
+        f"Hello {BUSINESS_NAME}, I want to place this order: "
+        f"{product_summary}. Total: Rs. {total}."
+    )
+    upi_note = f"{BUSINESS_NAME} order"
+    upi_link = (
+        'upi://pay?'
+        f"pa={quote(BUSINESS_UPI_ID)}"
+        f"&pn={quote(BUSINESS_NAME)}"
+        f"&am={total}"
+        '&cu=INR'
+        f"&tn={quote(upi_note)}"
+    )
+
+    return render(request, 'store/checkout.html', {
+        'items': items,
+        'total': total,
+        'business_upi_id': BUSINESS_UPI_ID,
+        'upi_link': upi_link,
+        'whatsapp_phone': CONTACT_PHONE,
+        'cod_text': order_text + ' Payment mode: Cash on Delivery.',
+        'online_text': order_text + ' I need help with online payment.',
+        'razorpay_enabled': bool(os.environ.get('RAZORPAY_KEY_ID')),
     })
 
 

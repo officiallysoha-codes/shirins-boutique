@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart | Shirin's Boutique</title>
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20260510-connect">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20260510-payments">
 </head>
 <body>
 <section class="shop-page">
@@ -31,6 +31,7 @@
     </div>
     <div class="cart-total">
         <strong>Total: Rs. {{ total }}</strong>
+        <a class="button-link" href="/checkout/">Checkout</a>
         <a class="button-link" href="https://wa.me/{{ whatsapp_phone }}?text={{ whatsapp_text|urlencode }}">Place Order on WhatsApp</a>
     </div>
     {% else %}
