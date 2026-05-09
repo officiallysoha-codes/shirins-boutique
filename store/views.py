@@ -1,6 +1,37 @@
-from django.shortcuts import render
-from django.http import Http404, HttpResponse
+from django.db.models import Q
+from django.http import Http404
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Product, Category
+
+
+CONTACT_PHONE = '919836380078'
+
+
+def _cart(request):
+    return request.session.setdefault('cart', {})
+
+
+def _wishlist(request):
+    return request.session.setdefault('wishlist', [])
+
+
+def _cart_items(cart):
+    product_ids = [int(product_id) for product_id in cart.keys()]
+    products = Product.objects.filter(id__in=product_ids)
+    items = []
+    total = 0
+
+    for product in products:
+        quantity = int(cart.get(str(product.id), 0))
+        subtotal = product.price * quantity
+        total += subtotal
+        items.append({
+            'product': product,
+            'quantity': quantity,
+            'subtotal': subtotal,
+        })
+
+    return items, total
 
 
 # HOME PAGE
@@ -20,10 +51,9 @@ def home(request):
 
 def category_page(request, name):
 
-    category = Category.objects.get(name=name)
+    category = get_object_or_404(Category, name=name)
 
     products = Product.objects.filter(category=category)
-
 
     return render(request, 'store/category.html', {
         'category': category,
@@ -35,28 +65,95 @@ def category_page(request, name):
 
 def wishlist(request):
 
-    return HttpResponse("Wishlist Page Coming Soon")
+    product_ids = [int(product_id) for product_id in _wishlist(request)]
+    products = Product.objects.filter(id__in=product_ids)
+
+    return render(request, 'store/wishlist.html', {
+        'products': products,
+    })
 
 
 # CART PAGE
 
 def cart(request):
 
-    return HttpResponse("Cart Page Coming Soon")
+    items, total = _cart_items(_cart(request))
+    whatsapp_text = 'Hello Shirin\'s Boutique, I would like to place an order.'
+
+    return render(request, 'store/cart.html', {
+        'items': items,
+        'total': total,
+        'whatsapp_phone': CONTACT_PHONE,
+        'whatsapp_text': whatsapp_text,
+    })
 
 
 # SEARCH PAGE
 
 def search(request):
 
-    return HttpResponse("Search Page Coming Soon")
+    query = request.GET.get('q', '').strip()
+    products = Product.objects.none()
+
+    if query:
+        products = Product.objects.filter(
+            Q(name__icontains=query) | Q(category__name__icontains=query)
+        ).distinct()
+
+    return render(request, 'store/search.html', {
+        'query': query,
+        'products': products,
+    })
 
 
-# ADD TO CART
+# CART ACTIONS
 
 def add_to_cart(request, product_id):
 
-    return HttpResponse(f"Product {product_id} added to cart")
+    product = get_object_or_404(Product, id=product_id)
+    cart = _cart(request)
+    product_key = str(product.id)
+    cart[product_key] = int(cart.get(product_key, 0)) + 1
+    request.session.modified = True
+
+    return redirect('cart')
+
+
+def remove_from_cart(request, product_id):
+
+    cart = _cart(request)
+    cart.pop(str(product_id), None)
+    request.session.modified = True
+
+    return redirect('cart')
+
+
+# WISHLIST ACTIONS
+
+def add_to_wishlist(request, product_id):
+
+    product = get_object_or_404(Product, id=product_id)
+    wishlist_items = _wishlist(request)
+    product_key = str(product.id)
+
+    if product_key not in wishlist_items:
+        wishlist_items.append(product_key)
+        request.session.modified = True
+
+    return redirect('wishlist')
+
+
+def remove_from_wishlist(request, product_id):
+
+    wishlist_items = _wishlist(request)
+    product_key = str(product_id)
+
+    if product_key in wishlist_items:
+        wishlist_items.remove(product_key)
+        request.session.modified = True
+
+    return redirect('wishlist')
+
 
 INFO_PAGES = {
     'sell-with-us': {

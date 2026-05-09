@@ -120,3 +120,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # DEFAULT PRIMARY KEY
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Store visitor cart and wishlist data in signed browser cookies for simple public shopping sessions.
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'

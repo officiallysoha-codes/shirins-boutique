@@ -2,50 +2,34 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>{{ category.name }} | Shirin's Boutique</title>
-
+    <title>Wishlist | Shirin's Boutique</title>
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
-
-
-   <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20260509-shop">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20260509-shop">
 </head>
-
 <body>
-
-<section class="products-page">
-
-    <h1>{{ category.name }}</h1>
-
+<section class="shop-page">
+    <a class="back-link" href="/">Back to Home</a>
+    <h1>Your Wishlist</h1>
     <div class="products-container">
-
         {% for product in products %}
-
         <div class="product-card">
-
+            {% if product.image %}
             <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
-
+            {% endif %}
             <h3>{{ product.name }}</h3>
-
-            <p>₹ {{ product.price }}</p>
-
+            <p>Rs. {{ product.price }}</p>
             <div class="product-actions">
                 <a class="button-link" href="/add-to-cart/{{ product.id }}/">Add to Cart</a>
-                <a class="button-link secondary" href="/add-to-wishlist/{{ product.id }}/">Wishlist</a>
+                <a class="button-link secondary" href="/remove-from-wishlist/{{ product.id }}/">Remove</a>
             </div>
-
         </div>
-
+        {% empty %}
+        <p class="empty-state">Your wishlist is empty. Add items you love and come back to them anytime.</p>
         {% endfor %}
-
     </div>
-
 </section>
-
 </body>
 </html>
