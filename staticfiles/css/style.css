@@ -506,6 +506,87 @@ body {
     color: #3a241d;
 }
 
+.theme-search {
+    background: #fffff0;
+}
+
+.theme-search h1,
+.theme-search .back-link {
+    color: #4a2d24;
+}
+
+.theme-search .search-form input,
+.theme-search .product-card,
+.theme-search .cart-row,
+.theme-search .payment-panel,
+.theme-search .order-summary {
+    background: #fffaf0;
+}
+
+.theme-wishlist {
+    background: #5f1428;
+    color: #fff8f0;
+}
+
+.theme-wishlist h1,
+.theme-wishlist .back-link,
+.theme-wishlist .empty-state {
+    color: #fff8f0;
+}
+
+.theme-wishlist .product-card {
+    background: #fff8f0;
+}
+
+.theme-wishlist .button-link {
+    background: #7b1e38;
+}
+
+.theme-wishlist .button-link.secondary {
+    background: #f5d7df;
+    color: #5f1428;
+}
+
+.theme-cart {
+    background: #eef4ff;
+    color: #112a5c;
+}
+
+.theme-cart h1,
+.theme-cart .back-link,
+.theme-cart .empty-state {
+    color: #112a5c;
+}
+
+.theme-cart .button-link,
+.theme-cart .search-form button {
+    background: #174ea6;
+}
+
+.theme-cart .button-link:hover,
+.theme-cart .search-form button:hover {
+    background: #0f3d86;
+}
+
+.theme-cart .button-link.secondary {
+    background: #dce8ff;
+    color: #112a5c;
+}
+
+.theme-cart .cart-row,
+.theme-cart .payment-panel,
+.theme-cart .order-summary {
+    background: #ffffff;
+    border-color: #c9d8f5;
+}
+
+.theme-cart .cart-row h2,
+.theme-cart .payment-panel h2,
+.theme-cart .payment-option h3,
+.theme-cart .order-summary h2 {
+    color: #112a5c;
+}
+
 .shop-page h1 {
     margin: 28px 0 28px;
     font-size: 64px;
